@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <title>Senters Protocol Specification -- senters/0.1</title>
+    <style type="text/css">
+    @media only screen and (min-width: 992px) and (max-width: 1199px)
+      { body { font-size: 14pt; } div.content { width: 96ex; margin: 0
+      auto; } } @media only screen and (min-width: 768px) and
+      (max-width: 991px) { body { font-size: 14pt; } div.content {
+      width: 96ex; margin: 0 auto; } } @media only screen and
+      (min-width: 480px) and (max-width: 767px) { body { font-size:
+      11pt; } div.content { width: 96ex; margin: 0 auto; } } @media
+      only screen and (max-width: 479px) { body { font-size: 8pt; }
+      div.content { width: 96ex; margin: 0 auto; } } @media only
+      screen and (min-device-width : 375px) and (max-device-width :
+      667px) { body { font-size: 9.5pt; } div.content { width: 96ex;
+      margin: 0 1px; } } @media only screen and (min-device-width:
+      1200px) { body { font-size: 10pt; margin: 0 4em; } div.content {
+      width: 96ex; margin: 0; } } h1, h2, h3, h4, h5, h6, .h1, .h2,
+      .h3, .h4, .h5, .h6 { font-weight: bold; line-height: 0pt;
+      display: inline; white-space: pre; font-family: monospace;
+      font-size: 1em; font-weight: bold; } pre { font-size: 1em;
+      margin-top: 0px; margin-bottom: 0px; } .pre { white-space: pre;
+      font-family: monospace; } .header{ font-weight: bold; } .newpage
+      { page-break-before: always; } .invisible { text-decoration:
+      none; color: white; } a.selflink { color: black;
+      text-decoration: none; } @media print { body { font-family:
+      monospace; font-size: 10.5pt; } h1, h2, h3, h4, h5, h6 {
+      font-size: 1em; }
+            a:link, a:visited { color: inherit; text-decoration: none;
+                } .noprint { display: none; } } @media screen { .grey,
+                .grey a:link, .grey a:visited { color: #777; }
+                .docinfo { background-color: #EEE; } .top {
+                border-top: 7px solid #EEE; } .bgwhite {
+                background-color: white; } .bgred { background-color:
+                #F44; } .bggrey { background-color: #666; } .bgbrown {
+                background-color: #840; } .bgorange {
+                background-color: #FA0; } .bgyellow {
+                background-color: #EE0; } .bgmagenta{
+                background-color: #F4F; } .bgblue { background-color:
+                #66F; } .bgcyan { background-color: #4DD; } .bggreen {
+                background-color: #4F4; }
+
+            .legend { font-size: 90%; } .cplate { font-size: 70%;
+            border: solid grey 1px; } }
+    </style>
+
+</head>
+<body onload="addHeaderTags()">
+  <div class="content">
+   <div style="height: 13px;">
+      <div style="height: 6px; position: absolute;"
+           class="pre noprint docinfo bgbrown" title="Click for colour legend.">                                                                        </div>
+      </div>
+   </div>
+<span class="pre noprint docinfo top">[<a href="http://senters.info">Specification</a>] [<a href="https://github.com/senters">Source Code on Github</a>] [<a href="http://senters.info/situated-programming">Situated Programming Manifesto</a>]</span><br>
+  <span class="pre noprint docinfo">                                                                        </span><br>
+  <span class="pre noprint docinfo">                                                          DRAFT STANDARD</span><br>
+  <span class="pre noprint docinfo">                                                                        </span><br>
+
+<pre>
+Senters Working Group                                        Robert Levy
+Request for Collaboration                               rplevy@gmail.com
+                                                             Tracy Harms
+                                                      kaleidic@gmail.com
+                                                             Thomas Levy
+                                                 thomas.a.levy@gmail.com
+
+  <span class="h1">              <h1>Senters Protocol -- senters/0.1-alpha</h1></span>
+
+Status of this Memo
+
+   This document specifies a protocol for the Internet community, and
+   requests discussion, suggestions for improvements, and
+   collaboration.
+
+Copyright Notice
+
+   Copyright (C) Robert P. Levy (2018).  All Rights Reserved.
+
+   <a href="https://creativecommons.org/licenses/by/4.0/">Distributed Under License CC BY 4.0</a>
+
+Abstract
+
+   Senters is a user-level message-based protocol for narrative
+   process scaffolding (NPS), a systems design pattern to facilitate
+   improvised collaborative organization of augmented experiences.
+   NPS involves the use of instruments, events, centers, and proxies.
+
+   Users instrument their environments for effects and for
+   information, in the familiar kappa event-driven architectural
+   style.  Instruments are minimal utilities that track and emit
+   events and in some cases change the state of the environment in so
+   doing.  Instruments are controlled entirely by events, appending
+   responded-to and emitted events onto immutable logs.
+
+   Events can be direct, or they can be about other events, the latter
+   of which is provided for with a simple gesture language.  Gestures
+   signal the bearing of an event on one of the three predicaments of
+   narrative process: engagement (engage or refrain), support (follow
+   or voice), and realization (exit or continue).  When gesturing
+   about the bearing of an event on process, the gesture event is
+   committed to a log for that active process.
+
+   The collected data of one's own and other people's processes forms
+   the basis of centers, which are event-sourced claims of utility in
+   situtations.  Centers are the means by which agents coordinate on
+   process, or in other words scaffold shared end-directed activities.
+   Any narrative process that one or more agents iterate on developing
+   produces a center.
+
+   Proxies are automatic generic artificial agents that users deploy
+   to carry out any scaffolding they are confident in off-loading.
+   Proxies attempt to optimize bringing relevant centers to the
+   attention of their users in the appropriate circumstances,
+   suggesting or carrying out supporing activities when a user is
+   engaged in a particular narrative process, and calling attention to
+   and discovering exit conditions to centers indicated as objectives.
+
+<span class="grey">Levy, et al.                                                    [Page 1]</span></pre>
+<hr class="noprint" style="width: 96ex;" align="left"><!--NewPage--><pre class="newpage"><a name="page-2" id="page-2" href="" class="invisible"> </a>
+<span class="grey">RFC                        senters/0.1-alpha                  March 2018</span>
+
+<span class="h2"><h2>1 Introduction</h2></span>
+
+  Senters ...
+
+<span class="h3"><h3>1.1 Purpose</h3></span>
+
+
+<span class="h3"><h3>1.2 Requirements</h3></span>
+
+
+<span class="h3"><h3>1.3 Terminology</h3></span>
+
+
+<span class="h3"><h3>1.4 Overall Operation</h3></span>
+
+
+<span class="h3"><h3>2 Notational Conventions</h3></span>
+
+
+<span class="h3"><h3>3 Protocol Parameters</h3></span>
+
+
+<span class="h3"><h3>4 Message</h3></span>
+
+
+<span class="h3"><h3>4.1 Message Types</h3></span>
+
+
+<span class="h3"><h3>4.2 Message Headers</h3></span>
+
+
+<span class="h3"><h3>4.3 Message Body</h3></span>
+
+
+<span class="h3"><h3>5 Gestures</h3></span>
+
+
+<span class="h3"><h3>5.1 ENGAGE (E)</h3></span>
+
+
+<span class="h3"><h3>5.2 REFRAIN (R)</h3></span>
+
+
+<span class="h3"><h3>5.3 FOLLOW (F)</h3></span>
+
+
+<span class="h3"><h3>5.4 VOICE (V)</h3></span>
+
+
+<span class="h3"><h3>5.5 EXIT (X)</h3></span>
+
+
+<span class="h3"><h3>5.7 CONTINUE (C)</h3></span>
+
+
+</body>
+</html>
